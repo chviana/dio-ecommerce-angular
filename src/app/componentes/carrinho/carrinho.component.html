@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="d-flex">
+    <div class="col">
+      <h1 class="display-6">Meu carrinho</h1>
+    </div>
+    <div class="col">
+      <h1 class="display-6">{{ total | currency: "BRL" }}</h1>
+    </div>
+  </div>
+
+  <hr />
+  <form #form="ngForm">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">produto</th>
+          <th scope="col">quantidade</th>
+          <th scope="col">valor unitário</th>
+          <th scope="col">total</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of carrinho">
+          <td scope="row">{{ item.produto.id }}</td>
+          <td>{{ item.produto.nome }}</td>
+          <td>{{ item.qtde }}</td>
+          <td>{{ item.produto.preco | currency: "BRL" }}</td>
+          <td>{{ item.produto.preco * item.qtde | currency: "BRL" }}</td>
+          <td>
+            <button
+              class="btn btn-outline-danger btn-sm"
+              (click)="excluirItemCarrinho(item)"
+            >
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

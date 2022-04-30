@@ -1,0 +1,15 @@
+<div class="container my-5">
+  <div class="row align-items-center">
+    <div class="col">
+      <img src="{{ produto.img }}" class="img-fluid" />
+    </div>
+    <div class="col-8">
+      <p class="display-6">{{ produto.nome }}</p>
+      <p class="text-justify">{{ produto.info }}</p>
+      <a [routerLink]="['/carrinho', produto.id]" class="btn btn-primary me-3"
+        >Adicionar</a
+      >
+      {{ produto.preco | currency: "BRL" }}
+    </div>
+  </div>
+</div>

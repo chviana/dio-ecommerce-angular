@@ -1,0 +1,27 @@
+<section
+  class="container d-flex flex-wrap align-items-center justify-content-between my-2"
+>
+  <div *ngFor="let produto of produtos">
+    <div class="row g-2">
+      <div class="col">
+        <div class="card" style="width: 16rem">
+          <img src="{{ produto.img }}" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">{{ produto.nome }}</h5>
+            <p class="card-text">
+              {{ produto.preco | currency: "BRL" }}
+            </p>
+            <a [routerLink]="['/carrinho', produto.id]" class="btn btn-primary"
+              >Adicionar</a
+            >
+            <a
+              [routerLink]="['/produto/info', produto.id]"
+              class="btn btn-secondary mx-2"
+              >Detalhes</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
